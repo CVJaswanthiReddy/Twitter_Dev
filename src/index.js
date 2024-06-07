@@ -56,7 +56,12 @@ app.listen(3000,async () =>{
     // const tweet= await tweetRepo.getWithComments('665ff1418f524c4fa7da6376');
     // console.log(tweet);
 
+    //about virtuals
+    // const tweetRepo= new TweetRepository();
+    // const tweet= await tweetRepo.getAll(2,4);
+    // console.log(tweet[0].contentWithEmail);
+
     const tweetRepo= new TweetRepository();
-    const tweet= await tweetRepo.getAll(2,4);
-    console.log(tweet[0].contentWithEmail);
-})
+    const tweet= await tweetRepo.create({content:'With hooks'});
+    console.log(tweet);
+});
