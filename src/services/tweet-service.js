@@ -8,7 +8,9 @@ class TweetService{
 
     async create(data){
         const content= data.content;
-        const tags= content.match(/#[a-zA-Z0-9_]+/g).map((tag =>tag.substring(1))); //this regex extracts hashatag
+        const tags= content.match(/#[a-zA-Z0-9_]+/g)
+                        .map((tag) =>tag.substring(1))
+                        .map(tag => tag.toLowerCase()); //this regex extracts hashatag
 
         console.log(tags);
         const tweet= await this. tweetRepository.create(data)
