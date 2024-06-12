@@ -26,17 +26,15 @@ class TweetService{
             tag.save();
         })
         return tweet;
-        //[{title:'coding', tweets:[]}]
-        //[excited, coding,js,career]->[{title:excited},title{career}]
-        //todocreate hashtags and add here
-        /**
-         * 1. bulcraete in mongoose
-         * 2. filter title of hashtag based on multiple tags
-         * 3. How to add tweet id inside all the hashtags
-         */
-  
+    }
+
+    async get(tweetId){
+        const tweet= await this.tweetRepository.getWithComments(tweetId);
+        return tweet;
         
     }
+
+
 }
 
 export default TweetService;

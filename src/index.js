@@ -3,8 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import {connect} from './config/database.js'
 
-import { UserRepository, TweetRepository} from './repository/index.js'
-import LikeService from './services/like-service.js'; 
+
 import apiRoutes from './routes/index.js'
 const app=express();
 
