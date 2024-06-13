@@ -9,12 +9,29 @@ export const signup= async(req,res)=>{
             password:req.body.password,
             name:req.body.name
         });
-        console.log(user);
         return res.status(200).json({
             data:user,
             success:true,
             message:'Successfully created a new user',
-           
+            err:{}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success:false,
+            message:'something went wrong',
+            data:{},
+            err:error
+        })
+    }
+}
+
+export const login = async (req,res)=>{
+    try {
+        const token= await userService.signin(req.body);
+        return res.status(200).json({
+            success:true,
+            message:'successfully logged in',
+            data:token,
             err:{}
         })
     } catch (error) {
