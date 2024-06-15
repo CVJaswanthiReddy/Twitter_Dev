@@ -18,7 +18,7 @@ const upload= multer({
         bucket:process.env.BUCKET_NAME,
         acl:'public-read',
         metadata: function(req, file, cb){
-            cb(null,{fieldName: file.fieldName});
+            cb(null,{ fieldName: file.originalname});
         },
         key: function(req,file,cb){
             cb(null, Date.now().toString())
